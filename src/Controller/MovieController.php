@@ -323,12 +323,30 @@ public function index(): Response
 }
 
 /**
- * @Route("/movie/{idMovie}", name="movie_get" , requirements={"idMovie"="\d+"})
+ * @Route("/movie/{id}", name="movie_get" , requirements={"idMovie"="\d+"})
  */
-public function getMovie( int $idMovie) : Response
+public function getMovie( int $id ): Response
+{
+  // Recherche de la case id du tableau $this->_movies qui contient le film ayant l'id fourni en paramètre
+  $movie_key = array_search( $id, array_column($this->_movies, 'id'));
+
+  // On envoie TOUS les films à la vue
+  return $this->render(
+    'movie/get.html.twig', 
+      [
+          'movie' => $this->_movies[$movie_key],
+      ]
+  );
+}
+
+/**
+ * @Route("ancien/movie/{idMovie}", name="movie_get" , requirements={"idMovie"="\d+"})
+ */
+public function AncientgetMovie( int $idMovie) : Response
 {
     if (isset($this->_movies[ $idMovie ]))
     {
+
       $output = $this->render(
         'movie/get.html.twig',
         [
