@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche du film {% endblock %}
+
+{% block body %}
+<style>
+h1{
+   
+    border: solid;
+}
+</style>
+
+    <span class= "encadrer un texte "><h1 align = center>{{movie.title}}<h1></span>
+    <h1 align = center>{{movie.id}}<h1>
+    <h1 align=center ><img src = "https://image.tmdb.org/t/p/w500/{{movie.poster_path}}"><h1>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Good movies watch them !!!{% endblock %}
+
+{% block body %}
+    {{ dump(movies) }}
+    <div align="center">
+        <ul>
+            {% for movie in movies %}
+            <li><h1>{{ movie.title|e }}</h1></li>
+            <img src="https://image.tmdb.org/t/p/w500/%7B%7Bmovie.poster_path%7D%7D%22/%3E
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}

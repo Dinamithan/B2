@@ -1,0 +1,12 @@
+<h1>Liste des {{ movies | length }} films </h1>
+<ul>
+    {% for movie in movies %}
+    <li>
+    <span class= "encadrer un texte "><h1 align = center>{{movie.title}}<h1></span>
+    <h1 align = center>{{movie.id}}<h1>
+    <h1 align=center ><img src = "https://image.tmdb.org/t/p/w500/{{movie.poster_path}}"><h1>
+    <br>
+    <a href="{{ path(movie_get, { id: movie.id })}}">Voir plus</a>   
+    </li>
+    {% endfor %}
+</ul>
